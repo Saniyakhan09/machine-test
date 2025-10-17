@@ -131,7 +131,7 @@ const Distributionlist = () => {
           {agent.data.map((task, index) => (
             <div
               key={index}
-              className="border   border-gray-200 rounded-lg p-3 hover:bg-gray-50 transition-all"
+              className="border   border-gray-200 rounded-lg p-3  transition-all"
             >
               <p className="text-sm font-medium text-white">
                 Name: <span className="font-normal">{task.name}</span>

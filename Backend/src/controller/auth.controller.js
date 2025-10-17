@@ -61,7 +61,7 @@ async function loginUser(req,res){
  // Compare entered password with hashed password
  const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Please check the password" });
     }
 
 // Generate JWT token for admin authentication
