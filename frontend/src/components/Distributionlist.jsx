@@ -1,3 +1,7 @@
+ //Distributionlist Component
+// Upload CSV, XLS, or XLSX files containing data to distribute among agents.
+// Sends the uploaded file to the backend via POST request to `/list/upload`.
+// Shows agents and their assigned tasks with details (name, phone, notes).
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +44,7 @@ const Distributionlist = () => {
 
   return (
     <div className="min-h-screen flex bg-gray-100">
-      {/* Sidebar */}
+      {/* Sidebar  */}
       <aside className="w-60 bg-[#0E1221] text-white p-6 fixed h-full">
         <h2 className="text-xl font-semibold mb-6">Dashboard</h2>
         <nav className="space-y-4">
@@ -81,6 +85,7 @@ const Distributionlist = () => {
               />
               <div className="flex items-center justify-between w-full border border-[#0E1221] rounded px-4 py-2">
                 <span className="text-gray-500">{file ? file.name : "No file chosen"}</span>
+
                 {/* browser button */}
                 <button
                   type="button"
@@ -147,9 +152,6 @@ const Distributionlist = () => {
   </div>
   </div>
 )}
-
-
-
       </div>
     </div>
   );

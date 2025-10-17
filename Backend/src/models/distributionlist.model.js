@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// for distributing file data to ecah agent 
+// for distributing file data to each agent 
 const listSchema = new mongoose.Schema({
   agentId: {
     type: mongoose.Schema.Types.ObjectId,

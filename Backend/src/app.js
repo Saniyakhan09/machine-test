@@ -18,13 +18,12 @@ app.use(cors({
 }));
 
 app.use(express.json())
-//admin
+//admin route
 app.use('/auth',router)  
-//agents 
+//agents route
 app.use('/agent',Agentrouter)
-//distributing 
+//distributing route
 app.use('/list', listRouter);
-//middlware 
 app.use(cookieParser());
 
 module.exports = app

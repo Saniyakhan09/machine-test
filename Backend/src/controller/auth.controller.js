@@ -2,7 +2,16 @@ const userModel = require('../models/user.model')
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+
+// Creating  a admin login 
+// validates emails and password uniqueness
+//hashing the password before saving
+// JWT token for admin authentication
+//returning the created admin details
+
+
 //admin register
+//checking if the admin already exists
 async function registerUser(req,res){
     console.log('Request body:', req.body);
 try{
@@ -14,9 +23,10 @@ try{
         })
     }
 
+// Hash password before saving
    const hashedPassword = await bcrypt.hash(password, 10);
    
-// creatin the admin credential 
+// creating the new  admin 
     const admin = await userModel.create({
     email,
     password: hashedPassword,
@@ -24,7 +34,7 @@ try{
 
 return res.status(201).json({
  meassge: "admin register succesfuuly",
- admin: { id: admin._id, email: user.email },
+ admin: { id: admin._id, email: admin.email },
 
 })
  } catch(err){
@@ -47,20 +57,24 @@ async function loginUser(req,res){
         message:" Admin not found ",
     });
 }
+
+ // Compare entered password with hashed password
  const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
-// token to admin
+
+// Generate JWT token for admin authentication
 const token = jwt.sign(
     { id: admin._id, email: admin.email},
     process.env.JWT_SECRET,
     {expiresIn: "1d"}
 ); 
 
-   res.cookie("token", token, {
-    httpOnly: true,
-    secure:true,
+// Store JWT in secure cookie
+    res.cookie("token", token, {
+    httpOnly: true, // ensures cookie is sent only over HTTPS
+    secure:true, 
     sameSite: "strict",
     maxAge:24*60*60*1000 
    });

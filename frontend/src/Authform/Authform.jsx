@@ -1,3 +1,10 @@
+// AuthForm Component
+// Handles:
+// Admin Login & Registration
+// JWT-based authentication
+// Redirects user to Dashboard after login
+
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +18,7 @@ function AuthForm() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      // fetching the data from the backend
+      // fetching the data from the backend og admin registration
       const res = await fetch("http://localhost:3000/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -21,6 +28,7 @@ function AuthForm() {
 
       const data = await res.json();
       setMessage(data.message);
+
       //navigating to the page after register
       if (res.ok) {
         localStorage.setItem("username", username);
@@ -31,6 +39,7 @@ function AuthForm() {
     }
   };
 
+  //Handle admin login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -45,6 +54,7 @@ function AuthForm() {
       setMessage(data.message);
 
       if (res.ok) {
+        // Save auth data locally for session management
         localStorage.setItem("email", email);
         localStorage.setItem("userId", data.userId);
         localStorage.setItem("token", data.token);
@@ -58,7 +68,8 @@ function AuthForm() {
   return (
     <div className="bg-[#0E1221]  min-h-screen flex items-center justify-center">
       <div className="w-full max-w-sm bg-transparent p-6 text-center animate-fadeIn">
-        {/* form to credential */}
+        
+        {/*login/registration form */}
         <form onSubmit={isLogin ? handleLogin : handleRegister}>
           <h3 className="text-left text-sm text-white mb-2">Email</h3>
           <input
@@ -88,8 +99,10 @@ function AuthForm() {
           </button>
         </form>
 
+        {/*  Status Message */}
         <p className="mt-3 text-green-500 text-sm">{message}</p>
 
+        {/*  Toggle between Login/Register */}
         <button
           className="mt-4 bg-transparent text-white text-sm hover:underline"
           onClick={() => setIsLogin(!isLogin)}

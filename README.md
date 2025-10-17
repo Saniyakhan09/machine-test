@@ -13,8 +13,10 @@ After login, the Admin is redirected to the *Dashboard*, which has three main se
 3. Upload List – Upload .csv, .xlsx, or .axls files.  
    - The data is validated and distributed equally among all agents.  
    - Each agent’s assigned data includes Name, Phone Number, and Notes.
-#Features
 
+
+
+#Features
 . Admin Login (JWT Authentication)  
 . Add / Manage Agents  
 . Upload CSV/XLSX/AXLS Files  

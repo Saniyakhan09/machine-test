@@ -1,9 +1,22 @@
+// Addagent Component
+// Creating new agents (name, email, phone, password)
+// Uses react-phone-input-2 for country code phone input
+// Submits agent data to backend (POST /agent/add)
+// Displays success or error messages based on API response
+// Uses React Router to navigate between different dashboard sections.
+// Includes sidebar navigation for Dashboard pages:
+// .Create Agents
+// .Agents
+// . Upload List
+// . Redirects between dashboard sections using React Router
+
 import React, { useState } from "react";
 import "react-phone-input-2/lib/style.css";
 import { useNavigate } from "react-router-dom"; 
 
 import PhoneInput from "react-phone-input-2";
 
+// State for storing form input values
 const Addagent = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,11 +26,11 @@ const Addagent = () => {
   });
 
   const navigate = useNavigate();
-
-  
   const [message, setMessage] = useState("");
+  // Handles phone input changes from react-phone-input-2
 
   const handlePhoneChange = (value , country, e, formattedValue) => {
+
     // setMobile(value);
     console.log("Phone input value:", formattedValue);
       setFormData((prev) => ({ ...prev, mobile: formattedValue }));
@@ -84,7 +97,7 @@ const cleanedMobile = formData.mobile.replace(/\s|-/g, '');
             Create an Agent
           </h1>
 
-          {/* Name */}
+          {/*Agents Name */}
           <div className="mb-4">
             <label className="block text-gray-600 mb-1">Name *</label>
             <input
@@ -98,7 +111,7 @@ const cleanedMobile = formData.mobile.replace(/\s|-/g, '');
             />
           </div>
 
-          {/* Email */}
+          {/*Agents Email */}
           <div className="mb-4">
             <label className="block text-gray-600 mb-1">Email *</label>
             <input
@@ -115,11 +128,10 @@ const cleanedMobile = formData.mobile.replace(/\s|-/g, '');
           {/* Mobile */}
           <div className="mb-4">
             <label className="block text-gray-600 mb-1">
-              {/* Mobile (with country code) * */}
+              {/* Mobile with country code */}
             </label>
-             <PhoneInput
-        country={"in"} // default country
-       
+        <PhoneInput
+        country={"in"} 
         value={formData.mobile}
         onChange={handlePhoneChange}
         inputStyle={{
@@ -135,7 +147,7 @@ const cleanedMobile = formData.mobile.replace(/\s|-/g, '');
           
           </div>
 
-          {/* Password */}
+          {/* Password input */}
           <div className="mb-6">
             <label className="block text-gray-600 mb-1">Password *</label>
             <input
@@ -149,7 +161,7 @@ const cleanedMobile = formData.mobile.replace(/\s|-/g, '');
             />
           </div>
 
-          {/* Button */}
+          {/*submit Button */}
           <button
             type="submit"
             className="w-full bg-[#0E1221] hover:bg-[#5a3450] text-white py-2 rounded-lg transition-all duration-200"

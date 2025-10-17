@@ -1,5 +1,10 @@
 const {body, validationResult} = require('express-validator')
 // validating the credentaials of admin
+
+// Validates admin login credentials (email & password)
+// Ensures correct format and minimum requirements
+// Returns validation errors if any exist
+
 const responseWithValidationErrors = (req,res,next)=>{
     const errors = validationResult(req);
     if(!errors.isEmpty()){
@@ -7,6 +12,10 @@ const responseWithValidationErrors = (req,res,next)=>{
     };
     next();
 }
+
+// Login validation rules
+// Email must be valid
+// Password must be at least 6 characters long
 
 const loginUserValidations = [
     body('email')

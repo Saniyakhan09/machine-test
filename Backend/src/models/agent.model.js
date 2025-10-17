@@ -18,8 +18,7 @@ const agentSchema = new mongoose.Schema({
     required: true,
     unique: true,
    // for the country cod
-
-    match: [/^\+[\d\s-]{10,20}$/, 'Please enter a valid mobile number with country code'],
+  match: [/^\+[\d\s-]{10,20}$/, 'Please enter a valid mobile number with country code'],
 
   },
 
