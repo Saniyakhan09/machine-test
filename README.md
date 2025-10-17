@@ -1,7 +1,16 @@
 #MERN Machine Test — Admin, Agent and CSV Distribution
 
-This project is allows an Admin to log in,and create Agents, upload CSV/XLSX files, and distribute list items among 5 agents equally.
 
+This project allows an Admin to log in, create Agents, upload CSV/XLSX files, and distribute list items equally among 5 agents. Once on the login page, enter the credentials:
+Email: auybshariff00@gmail.com
+Password: saniya71
+* After logging in the Admin is redirected to the Dashboard, which has three main navigation pages: Create Agents, Agents, and Upload List.
+
+* Create Agents: Used to add new agents.
+
+* Agents: Displays all the agents that have been created.
+
+* Upload List: Allows uploading files in .csv, .xlsx, or .axls format. After uploading, the data is validated and distributed equally among the agents, showing each agent’s assigned client data including Name, Phone Number, and Notes.
 
 #Features
 
@@ -16,7 +25,7 @@ This project is allows an Admin to log in,and create Agents, upload CSV/XLSX fil
 
 #Tech
 
-Frontend: React.js  
+Frontend: React.js and Tailwind css
 Backend: Node.js + Express.js  
 Database: MongoDB  
 Authentication: JWT  
@@ -29,4 +38,4 @@ Frontend: nmp run dev
 #Repository
 
 git: https://github.com/Saniyakhan09/machine-test
-cd mern-machine-test
+cd machine

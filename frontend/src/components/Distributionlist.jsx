@@ -107,20 +107,19 @@ const Distributionlist = () => {
 
 {distributedData.length > 0 && (
 <div className="mt-24   mx-auto">
-    {/* 👇 Add your heading here */}
     <h2 className="text-2xl font-bold  text-center -ml-90 text-gray-900 underline -mb-10 uppercase">
       Distributed Lists
     </h2>
-  <div className="mt-24 -ml-60   grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8  w-[120%] mx-auto">
+  <div className="mt-24 -ml-72  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8  w-[130%] mx-auto">
     {/* maping the agents data  */}
      
     {distributedData.map((agent, i) => (
 
       <div
         key={i}
-        className=" p-6 w-2xs gap-4 shadow-lg rounded-2xl border border-[#0E1221] hover:shadow-xl transition-all duration-300"
+        className=" p-6 w-[20] gap-4 shadow-lg rounded-2xl border border-[#0E1221] bg-[#0E1221]  hover:shadow-xl transition-all duration-300"
       >
-        <h2 className="text-xl font-semibold text-[#0E1221] mb-4">
+        <h2 className="text-xl font-semibold text-white mb-4">
           Agent: {agent.agentName}
         </h2>
 
@@ -130,14 +129,14 @@ const Distributionlist = () => {
               key={index}
               className="border   border-gray-200 rounded-lg p-3 hover:bg-gray-50 transition-all"
             >
-              <p className="text-sm font-medium text-gray-800">
+              <p className="text-sm font-medium text-white">
                 Name: <span className="font-normal">{task.name}</span>
               </p>
-              <p className="text-sm font-medium text-gray-800">
+              <p className="text-sm font-medium text-white">
                 Phone:{" "}
                 <span className="font-normal">{task["phone number"]}</span>
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-amber-50">
                 Notes: <span className="font-normal">{task.notes}</span>
               </p>
             </div>

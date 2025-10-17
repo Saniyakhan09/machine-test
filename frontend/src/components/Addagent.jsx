@@ -17,10 +17,10 @@ const Addagent = () => {
   
   const [message, setMessage] = useState("");
 
-  const handlePhoneChange = (value) => {
+  const handlePhoneChange = (value , country, e, formattedValue) => {
     // setMobile(value);
-    console.log("Phone input value:", value);
-      setFormData((prev) => ({ ...prev, mobile: value }));
+    console.log("Phone input value:", formattedValue);
+      setFormData((prev) => ({ ...prev, mobile: formattedValue }));
 
   };
 
@@ -31,12 +31,12 @@ const Addagent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-
+const cleanedMobile = formData.mobile.replace(/\s|-/g, ''); 
     try {
       const res = await fetch("http://localhost:3000/agent/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, mobile: cleanedMobile }),
       });
 
       const data = await res.json();
