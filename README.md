@@ -28,5 +28,5 @@ Frontend: nmp run dev
 
 #Repository
 
-git clone https://github.com/<your-username>/mern-machine-test.git
+git: https://github.com/Saniyakhan09/machine-test
 cd mern-machine-test
