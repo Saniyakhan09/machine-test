@@ -49,10 +49,9 @@ const Distributionlist = () => {
         <h2 className="text-xl font-semibold mb-6">Dashboard</h2>
         <nav className="space-y-4">
              <button onClick={()=>{navigate("/Addagent")}} className="hover:text-[#5a3450] cursor-pointer">
-                      
- Create Agents</button>
- <br />
-          <button
+                      Create Agents</button>
+                       <br />
+                     <button
             onClick={() => navigate("/Agentlist")}
             className="block w-full text-left hover:text-[#5a3450] cursor-pointer"
           >
